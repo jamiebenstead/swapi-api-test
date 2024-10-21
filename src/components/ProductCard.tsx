@@ -21,8 +21,9 @@ export default function ProductCard({ product }: ProductCardProps) {
   }, []);
 
   const handleAddToBasket = () => {
-    addToBasket(quantity);
+    if (quantity === 0) return;
 
+    addToBasket(quantity);
     setShowNotification(true);
 
     // Needed to add this timeout to allow for adding the same item a second time
